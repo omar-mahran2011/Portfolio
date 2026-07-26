@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Shady — Web Developer</title>
+<meta name="description" content="Omar Shady, web developer. I build real, working products — online ordering platforms, interactive learning apps, and admin dashboards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mono: 'JetBrains Mono', monospace;
+    --display-ar: 'Cairo', sans-serif;
+    --body-ar: 'Tajawal', sans-serif;
+    --display-en: 'Space Grotesk', sans-serif;
+    --body-en: 'Inter', sans-serif;
+    --radius: 14px;
+    --amber: #f2a93b;
+    --amber-dim: #c98a2c;
+    --teal: #3fbfae;
+  }
+
+  html[data-theme="dark"]{
+    --bg: #14120e;
+    --bg-soft: #1c1912;
+    --card: #201c15;
+    --card-2: #17140f;
+    --line: #34301f;
+    --ink: #f4efe1;
+    --muted: #a79c86;
+    --shadow: rgba(0,0,0,0.55);
+    --amber: #f2a93b;
+    --teal: #3fbfae;
+  }
+  html[data-theme="light"]{
+    --bg: #f8f5ee;
+    --bg-soft: #f0ead9;
+    --card: #ffffff;
+    --card-2: #f3efe2;
+    --line: #e4dcc4;
+    --ink: #1d1a12;
+    --muted: #766c56;
+    --shadow: rgba(90,70,20,0.15);
+    --amber: #d98a1a;
+    --teal: #1c8f7f;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, color-mix(in srgb, var(--amber) 10%, transparent), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 20%, color-mix(in srgb, var(--teal) 8%, transparent), transparent),
+      var(--bg);
+    color: var(--ink);
+    font-family: var(--body-ar);
+    line-height: 1.75;
+    overflow-x: hidden;
+    transition: background .35s ease, color .35s ease;
+  }
+  body.lang-en{ font-family: var(--body-en); }
+  h1, h2, h3, .logo, .p-title, .p-shot-title, .how-card h3{ font-family: var(--display-ar); }
+  body.lang-en h1, body.lang-en h2, body.lang-en h3, body.lang-en .logo,
+  body.lang-en .p-title, body.lang-en .p-shot-title, body.lang-en .how-card h3{ font-family: var(--display-en); }
+
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background: var(--amber); color:#14120e; }
+
+  .wrap{ max-width: 1080px; margin:0 auto; padding: 0 24px; }
+
+  .reveal{ opacity:0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    *{ animation-duration:.001s !important; }
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    border-bottom: 1px solid var(--line);
+    transition: background .35s ease, border-color .35s ease;
+  }
+  nav.wrap{ display:flex; align-items:center; justify-content:space-between; padding-block: 15px; gap: 16px; }
+  .logo{ font-weight:700; font-size: 16px; color: var(--ink); letter-spacing: .3px; display:flex; align-items:center; gap:8px; white-space:nowrap; }
+  .logo .dot{ width:8px; height:8px; border-radius:50%; background: var(--amber); box-shadow: 0 0 10px var(--amber); flex-shrink:0; }
+
+  .navlinks{ display:flex; gap: 26px; font-size: 14.5px; color: var(--muted); }
+  .navlinks a{ transition: color .2s ease; }
+  .navlinks a:hover, .navlinks a:focus-visible{ color: var(--ink); }
+  .navlinks a:focus-visible{ outline: 1px solid var(--amber); outline-offset:4px; border-radius:3px; }
+
+  .nav-tools{ display:flex; align-items:center; gap: 10px; }
+  .tool-btn{
+    display:flex; align-items:center; gap:6px;
+    background: var(--card); border:1px solid var(--line); border-radius: 999px;
+    padding: 7px 13px; font-size: 13px; font-weight:600; color: var(--ink);
+    cursor:pointer; transition: border-color .2s, transform .15s, color .2s;
+  }
+  .tool-btn:hover{ border-color: var(--amber); transform: translateY(-1px); }
+  .tool-btn:focus-visible{ outline: 2px solid var(--amber); outline-offset: 2px; }
+  .tool-btn .ic{ font-size: 14px; line-height:1; }
+
+  /* ---------- hero ---------- */
+  .hero{ padding: 96px 0 74px; }
+  .terminal{
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px var(--shadow);
+    max-width: 560px;
+  }
+  .term-bar{ display:flex; align-items:center; gap:8px; padding: 11px 14px; background: var(--card-2); border-bottom: 1px solid var(--line); }
+  .term-bar span{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .term-bar span:nth-child(1){ background:#e6584f; }
+  .term-bar span:nth-child(2){ background:#e6b34f; }
+  .term-bar span:nth-child(3){ background:#57c26b; }
+  .term-title{ margin-inline-start:auto; font-family: var(--mono); font-size:12px; color: var(--muted); }
+  .term-body{ padding: 20px 22px 24px; font-family: var(--mono); font-size: 14px; direction: ltr; text-align:left; color: var(--ink); min-height: 168px; }
+  .term-body .l{ margin-bottom: 7px; white-space: pre-wrap; }
+  .prompt{ color: var(--teal); }
+  .path{ color: var(--amber); }
+  .out{ color: var(--muted); }
+  .cursor{ display:inline-block; width:8px; height:15px; background: var(--amber); margin-inline-start:2px; vertical-align:-2px; animation: blink 1s step-end infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .hero-headline{ margin-top: 46px; max-width: 760px; }
+  .eyebrow{ font-family: var(--mono); color: var(--teal); font-size: 13px; letter-spacing: .5px; margin-bottom: 16px; display:block; }
+  h1{ font-weight: 900; font-size: clamp(30px, 5.2vw, 56px); line-height: 1.28; color: var(--ink); }
+  h1 .accent{ color: var(--amber); }
+  .hero-sub{ margin-top: 22px; font-size: 18px; color: var(--muted); max-width: 620px; }
+
+  .cta-row{ display:flex; gap:14px; margin-top: 36px; flex-wrap: wrap; }
+  .btn{
+    font-weight: 700; font-size: 15px;
+    padding: 14px 28px; border-radius: 9px;
+    border: 1px solid transparent;
+    display:inline-flex; align-items:center; gap:8px;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+  }
+  .btn:focus-visible{ outline: 2px solid var(--amber); outline-offset: 3px; }
+  .btn-primary{ background: var(--amber); color:#1a1610; }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 14px 28px -12px color-mix(in srgb, var(--amber) 60%, transparent); }
+  .btn-ghost{ border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover{ border-color: var(--teal); color: var(--teal); transform: translateY(-2px); }
+
+  /* ---------- section shell ---------- */
+  section{ padding: 96px 0; border-top: 1px solid var(--line); transition: border-color .35s ease; }
+  .section-head{ margin-bottom: 46px; }
+  .section-head .eyebrow{ margin-bottom: 10px; }
+  h2{ font-weight: 800; font-size: clamp(26px, 3.2vw, 36px); color: var(--ink); }
+  .section-desc{ color: var(--muted); max-width: 600px; margin-top: 12px; font-size: 16px; }
+
+  /* ---------- about ---------- */
+  .about-grid{ display:grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items:start; }
+  .about-text p{ color: var(--muted); font-size: 16.5px; margin-bottom: 16px; }
+  .about-text strong{ color: var(--ink); }
+
+  .pkg-card{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius); overflow:hidden; box-shadow: 0 20px 45px -30px var(--shadow); }
+  .pkg-head{ padding: 14px 18px; border-bottom:1px solid var(--line); font-family: var(--mono); font-size: 13px; color: var(--muted); background: var(--card-2); }
+  .pkg-body{ padding: 20px; font-family: var(--mono); font-size: 13.5px; direction: ltr; text-align:left; }
+  .pkg-line{ color: var(--ink); margin-bottom: 4px; }
+  .pkg-key{ color: var(--teal); }
+  .pkg-val{ color: var(--amber); }
+  .pkg-brace{ color: var(--muted); }
+  .pkg-indent{ padding-inline-start: 22px; }
+
+  /* ---------- projects ---------- */
+  .project{ display:grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items:center; padding: 44px 0; }
+  .project + .project{ border-top: 1px dashed var(--line); }
+  .project:nth-child(even) .p-visual{ order: 2; }
+
+  .p-visual{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius); overflow:hidden; box-shadow: 0 26px 55px -30px var(--shadow); }
+  .browser-bar{ display:flex; align-items:center; gap:8px; padding:10px 14px; background: var(--card-2); border-bottom:1px solid var(--line); }
+  .browser-bar span{ width:9px; height:9px; border-radius:50%; background: var(--line); }
+  .browser-url{ margin-inline-start:10px; font-family: var(--mono); font-size:11.5px; color: var(--muted); direction:ltr; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .p-shot{ padding: 28px 24px; min-height: 210px; display:flex; flex-direction:column; justify-content:center; gap:10px; }
+  .p-tag-emoji{ font-size: 34px; }
+  .p-shot-title{ font-weight:800; font-size: 20px; color:var(--ink); }
+  .p-shot-line{ font-family: var(--mono); font-size: 12.5px; color: var(--muted); direction: ltr; text-align:left; }
+
+  .p-num{ font-family: var(--mono); font-size: 13px; color: var(--amber); margin-bottom: 10px; display:block; }
+  .p-title{ font-weight: 800; font-size: 25px; color: var(--ink); margin-bottom: 12px; }
+  .p-desc{ color: var(--muted); font-size: 15.5px; margin-bottom: 18px; }
+  .p-features{ list-style:none; margin-bottom: 22px; }
+  .p-features li{ font-size: 14.5px; color: var(--muted); padding-right: 22px; position:relative; margin-bottom: 8px; }
+  .p-features li::before{ content:'▸'; position:absolute; right:0; color: var(--teal); }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom: 22px; }
+  .tag{ font-family: var(--mono); font-size: 11.5px; color: var(--teal); border:1px solid color-mix(in srgb, var(--teal) 40%, transparent); background: color-mix(in srgb, var(--teal) 9%, transparent); padding: 5px 10px; border-radius: 999px; }
+
+  .p-links{ display:flex; gap: 12px; flex-wrap:wrap; }
+  .p-link{ font-size: 14px; font-weight:700; display:inline-flex; align-items:center; gap:6px; padding: 11px 20px; border-radius: 8px; border:1px solid var(--line); transition: border-color .2s, color .2s, transform .18s; }
+  .p-link:hover{ border-color: var(--amber); color: var(--amber); transform: translateY(-2px); }
+
+  /* ---------- how ---------- */
+  .how-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .how-card{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius); padding: 28px 24px; transition: border-color .2s, transform .2s; }
+  .how-card:hover{ border-color: var(--amber-dim); transform: translateY(-4px); }
+  .how-icon{ font-size: 26px; margin-bottom: 14px; }
+  .how-card h3{ font-size: 17px; color: var(--ink); margin-bottom: 8px; font-weight: 700; }
+  .how-card p{ font-size: 14px; color: var(--muted); }
+
+  /* ---------- contact ---------- */
+  .contact-shell{ display:grid; grid-template-columns: .9fr 1.1fr; gap: 50px; align-items:start; }
+  .contact-side h2{ margin-bottom: 14px; }
+  .contact-side .section-desc{ margin-bottom: 30px; }
+
+  .direct-list{ display:flex; flex-direction:column; gap: 12px; }
+  .clink{
+    display:flex; align-items:center; gap:12px;
+    background: var(--card); border:1px solid var(--line); border-radius: 10px;
+    padding: 14px 18px; font-family: var(--mono); font-size: 13.5px; color: var(--ink);
+    transition: border-color .2s, transform .2s;
+  }
+  .clink:hover{ border-color: var(--teal); transform: translateX(-3px); color: var(--teal); }
+  html[dir="ltr"] .clink:hover{ transform: translateX(3px); }
+  .clink .ic{ font-size: 17px; }
+
+  .contact-form{
+    background: var(--card); border:1px solid var(--line); border-radius: var(--radius);
+    padding: 34px; box-shadow: 0 30px 60px -32px var(--shadow);
+  }
+  .form-row{ margin-bottom: 20px; }
+  .form-row label{ display:block; font-size: 13.5px; font-weight:700; color: var(--muted); margin-bottom: 8px; }
+  .form-row input, .form-row textarea{
+    width:100%; background: var(--card-2); border:1px solid var(--line); border-radius: 8px;
+    padding: 13px 15px; color: var(--ink); font-family: inherit; font-size: 15px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .form-row input:focus, .form-row textarea:focus{
+    outline:none; border-color: var(--amber);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--amber) 20%, transparent);
+  }
+  .form-row textarea{ resize: vertical; min-height: 120px; }
+  .form-two{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-submit{
+    width:100%; justify-content:center; border:none; cursor:pointer; font-size:16px;
+  }
+  .form-note{ font-size: 12.5px; color: var(--muted); margin-top: 14px; text-align:center; }
+  .hp{ position:absolute; left:-9999px; opacity:0; }
+
+  footer{ border-top:1px solid var(--line); padding: 30px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  footer p{ color: var(--muted); font-size: 13px; font-family: var(--mono); }
+  footer .back{ color: var(--muted); font-size: 13px; }
+  footer .back:hover{ color: var(--amber); }
+
+  @media (max-width: 860px){
+    .about-grid{ grid-template-columns: 1fr; }
+    .project{ grid-template-columns: 1fr; }
+    .project:nth-child(even) .p-visual{ order: 0; }
+    .how-grid{ grid-template-columns: 1fr; }
+    .contact-shell{ grid-template-columns: 1fr; }
+    .navlinks{ display:none; }
+    .form-two{ grid-template-columns: 1fr; }
+    .contact-form{ padding: 24px; }
+  }
+</style>
+</head>
+<body class="lang-ar">
+
+<header>
+  <nav class="wrap">
+    <div class="logo"><span class="dot"></span> <span data-i18n="brand">omar.shady</span></div>
+    <div class="navlinks">
+      <a href="#about" data-i18n="nav_about">نبذة</a>
+      <a href="#work" data-i18n="nav_work">المشاريع</a>
+      <a href="#how" data-i18n="nav_how">أسلوب الشغل</a>
+      <a href="#contact" data-i18n="nav_contact">تواصل</a>
+    </div>
+    <div class="nav-tools">
+      <button class="tool-btn" id="themeToggle" type="button" aria-label="تبديل الثيم">
+        <span class="ic" id="themeIcon">🌙</span> <span id="themeLabel">غامق</span>
+      </button>
+      <button class="tool-btn" id="langToggle" type="button" aria-label="Switch language">
+        <span class="ic">🌐</span> <span id="langLabel">EN</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="terminal reveal">
+      <div class="term-bar">
+        <span></span><span></span><span></span>
+        <span class="term-title">zsh — omar@portfolio</span>
+      </div>
+      <div class="term-body" id="termBody"></div>
+    </div>
+
+    <div class="hero-headline reveal">
+      <span class="eyebrow" data-i18n="hero_eyebrow">// مطوّر ويب — بيحوّل الفكرة لمنتج شغّال</span>
+      <h1 data-i18n="hero_h1">مش بس بصمم شاشات. <span class="accent">بابني حاجات الناس بتستخدمها فعلاً.</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">اسمي عمر شادي. بشتغل على مشاريع ويب من الفكرة للنشر: منصات طلب أونلاين، تطبيقات تفاعلية، ولوحات تحكم — كل حاجة متصممة، متبنية، ومنشورة على الإنترنت فعليًا مش مجرد Mockup.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#work" data-i18n="hero_cta1">شوف المشاريع ↓</a>
+        <a class="btn btn-ghost" href="#contact" data-i18n="hero_cta2">اتكلم معايا</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow" data-i18n="about_eyebrow">// نبذة</span>
+        <h2 style="margin-bottom:20px;" data-i18n="about_h2">إزاي بفكر لما بابني حاجة</h2>
+        <p data-i18n="about_p1"><strong>مهتم إني أبني منتجات حقيقية بتشتغل</strong> — مش مجرد واجهات جميلة وخلاص. من أول تجربة المستخدم لحد آخر تفصيلة في الـ Deployment.</p>
+        <p data-i18n="about_p2">بشتغل بنفسي على المشروع كامل: الواجهة، المنطق اللي بيشغّلها، ولوحات التحكم اللي بتخلّي صاحب المنتج يتحكم فيه من غير ما يحتاجني في كل صغيرة وكبيرة.</p>
+        <p data-i18n="about_p3">كل مشروع من اللي هتشوفه تحت مش تجربة أو Template — دي منتجات فعلًا شغّالة على الإنترنت ومستخدمين بيتعاملوا معاها دلوقتي.</p>
+      </div>
+
+      <div class="pkg-card reveal">
+        <div class="pkg-head">~/omar/skills/package.json</div>
+        <div class="pkg-body">
+          <div class="pkg-line pkg-brace">{</div>
+          <div class="pkg-line pkg-indent"><span class="pkg-key">"name"</span>: <span class="pkg-val">"omar-shady"</span>,</div>
+          <div class="pkg-line pkg-indent"><span class="pkg-key">"role"</span>: <span class="pkg-val" data-i18n="pkg_role">"مطوّر ويب"</span>,</div>
+          <div class="pkg-line pkg-indent"><span class="pkg-key">"dependencies"</span>: {</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"html-css-js"</span>: <span class="pkg-val">"latest"</span>,</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"frontend-ui"</span>: <span class="pkg-val">"^responsive"</span>,</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"rtl-ltr-ux"</span>: <span class="pkg-val">"^2.0.0"</span>,</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"admin-dashboards"</span>: <span class="pkg-val">"^1.0.0"</span>,</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"deployment"</span>: <span class="pkg-val">"vercel"</span></div>
+          <div class="pkg-line pkg-indent">},</div>
+          <div class="pkg-line pkg-indent"><span class="pkg-key">"scripts"</span>: {</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"build"</span>: <span class="pkg-val" data-i18n="pkg_build">"شغل لحد ما يظبط"</span>,</div>
+          <div class="pkg-line pkg-indent" style="padding-inline-start:44px;"><span class="pkg-key">"deploy"</span>: <span class="pkg-val" data-i18n="pkg_deploy">"سلّم في الميعاد"</span></div>
+          <div class="pkg-line pkg-indent">}</div>
+          <div class="pkg-line pkg-brace">}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="work_eyebrow">// المشاريع</span>
+        <h2 data-i18n="work_h2">حاجات بنيتها وشغّالة دلوقتي</h2>
+        <p class="section-desc" data-i18n="work_desc">مش سكرين شوتس من Figma — دوس على الروابط وشوفهم شغّالين بنفسك.</p>
+      </div>
+
+      <div class="project reveal">
+        <div class="p-visual">
+          <div class="browser-bar">
+            <span></span><span></span><span></span>
+            <div class="browser-url">koshari-dakka.vercel.app</div>
+          </div>
+          <div class="p-shot">
+            <div class="p-tag-emoji">🍜</div>
+            <div class="p-shot-title" data-i18n="p1_shot_title">كشري دقة</div>
+            <div class="p-shot-line" data-i18n="p1_shot_l1">$ cart.add("كشري وسط") → في السلة ✓</div>
+            <div class="p-shot-line" data-i18n="p1_shot_l2">$ order.send() → واتساب مفتوح ✓</div>
+          </div>
+        </div>
+        <div class="p-content">
+          <span class="p-num" data-i18n="p1_num">مشروع تجاري — طلبات أونلاين</span>
+          <h3 class="p-title" data-i18n="p1_title">كشري دقة</h3>
+          <p class="p-desc" data-i18n="p1_desc">منصة طلب أونلاين لمطعم كشري: المستخدم يختار من المنيو، يضيف للسلة، يحدد توصيل أو استلام، ويبعت طلبه مباشرة عبر واتساب. ولوحة تحكم منفصلة لصاحب المطعم يدير بيها المنيو والعروض من غير ما يلمس كود.</p>
+          <ul class="p-features">
+            <li data-i18n="p1_f1">سلة طلبات تفاعلية بحساب الإجمالي أوتوماتيك</li>
+            <li data-i18n="p1_f2">إرسال الطلب مباشرة على واتساب بكل التفاصيل</li>
+            <li data-i18n="p1_f3">لوحة تحكم إدارية محمية بكلمة مرور لتعديل المنيو والعروض</li>
+            <li data-i18n="p1_f4">واجهة عربية بالكامل ومظبوطة على الموبايل</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Frontend</span>
+            <span class="tag">RTL UI</span>
+            <span class="tag">Admin Panel</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://koshari-dakka.vercel.app/" target="_blank" rel="noopener">🔗 <span data-i18n="visit_site">زور الموقع</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project reveal">
+        <div class="p-visual">
+          <div class="browser-bar">
+            <span></span><span></span><span></span>
+            <div class="browser-url">code-it-ashy.vercel.app</div>
+          </div>
+          <div class="p-shot">
+            <div class="p-tag-emoji">🧑‍💻</div>
+            <div class="p-shot-title">Code It!</div>
+            <div class="p-shot-line" data-i18n="p2_shot_l1">$ streak.count++ → 🔥 يوم جديد</div>
+            <div class="p-shot-line" data-i18n="p2_shot_l2">$ hearts.remaining → ❤️❤️❤️❤️❤️</div>
+          </div>
+        </div>
+        <div class="p-content">
+          <span class="p-num" data-i18n="p2_num">تطبيق تعليمي — تفاعلي</span>
+          <h3 class="p-title">Code It!</h3>
+          <p class="p-desc" data-i18n="p2_desc">تطبيق ويب لتعليم البرمجة للأعمار من ٧ لـ ١٨ سنة، بأسلوب شبيه بتطبيقات تعلّم اللغات: دروس يومية قصيرة، نظام قلوب بيحدد عدد المحاولات، ستريك يومي، وخريطة مغامرة يتقدم فيها المتعلم عالم ورا التاني.</p>
+          <ul class="p-features">
+            <li data-i18n="p2_f1">نظام تسجيل دخول وحساب جديد كامل</li>
+            <li data-i18n="p2_f2">دروس تفاعلية: اختيار من متعدد، ترتيب، وتوصيل</li>
+            <li data-i18n="p2_f3">نظام قلوب وستريك يومي لتحفيز الاستمرارية</li>
+            <li data-i18n="p2_f4">خريطة عوالم تتفتح بالتدريج حسب التقدّم</li>
+          </ul>
+          <div class="tags">
+            <span class="tag">Frontend</span>
+            <span class="tag">Auth</span>
+            <span class="tag">Gamification</span>
+            <span class="tag">Vercel</span>
+          </div>
+          <div class="p-links">
+            <a class="p-link" href="https://code-it-ashy.vercel.app/" target="_blank" rel="noopener">🔗 <span data-i18n="visit_site2">زور الموقع</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="how_eyebrow">// أسلوب الشغل</span>
+        <h2 data-i18n="how_h2">إزاي بتعامل مع أي مشروع جديد</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-card reveal">
+          <div class="how-icon">🎯</div>
+          <h3 data-i18n="how1_title">افهم الهدف الأول</h3>
+          <p data-i18n="how1_desc">قبل أي سطر كود، بحدد المشروع بيحل مشكلة إيه، ومين هيستخدمه، عشان القرارات كلها تبقى ليها سبب.</p>
+        </div>
+        <div class="how-card reveal">
+          <div class="how-icon">🛠️</div>
+          <h3 data-i18n="how2_title">بناء شغّال مش ديمو</h3>
+          <p data-i18n="how2_desc">كل حاجة بعملها بتتنشر فعليًا وتتجرب على الموبايل والديسكتوب، مش تفضل حبيسة في بيئة تجريبية.</p>
+        </div>
+        <div class="how-card reveal">
+          <div class="how-icon">🔁</div>
+          <h3 data-i18n="how3_title">تسليم وتحسين مستمر</h3>
+          <p data-i18n="how3_desc">بعد النشر، بفضل متابع الأداء وبستقبل فيدباك عشان أطوّر المنتج مع الوقت مش أسيبه زي ما هو.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-shell">
+      <div class="contact-side reveal">
+        <span class="eyebrow" data-i18n="contact_eyebrow">// تواصل</span>
+        <h2 data-i18n="contact_h2">عندك فكرة أو مشروع؟ يلا نبنيه</h2>
+        <p class="section-desc" data-i18n="contact_desc">ابعتلي تفاصيل مشروعك من الفورم، وأنا هرد عليك بأسرع ما يمكن. أو لو حابب تواصل مباشر، اختار أي وسيلة تحت.</p>
+        <div class="direct-list">
+          <a class="clink" href="tel:+201551783454"><span class="ic">📞</span> +20 155 178 3454</a>
+          <a class="clink" href="mailto:synzriv@gmail.com"><span class="ic">✉️</span> synzriv@gmail.com</a>
+          <a class="clink" href="https://wa.me/201551783454" target="_blank" rel="noopener"><span class="ic">💬</span> <span data-i18n="whatsapp_label">واتساب</span></a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/synzriv@gmail.com" method="POST">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="رسالة جديدة من البورتوفوليو">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-two">
+          <div class="form-row">
+            <label for="f_name" data-i18n="form_name">الاسم</label>
+            <input id="f_name" name="الاسم" type="text" required placeholder="اسمك" data-i18n-placeholder="form_name_ph">
+          </div>
+          <div class="form-row">
+            <label for="f_email" data-i18n="form_email">الإيميل</label>
+            <input id="f_email" name="الإيميل" type="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="f_subject" data-i18n="form_subject">موضوع المشروع</label>
+          <input id="f_subject" name="الموضوع" type="text" placeholder="موقع تجاري، تطبيق ويب، لوحة تحكم..." data-i18n-placeholder="form_subject_ph">
+        </div>
+        <div class="form-row">
+          <label for="f_msg" data-i18n="form_msg">تفاصيل المشروع</label>
+          <textarea id="f_msg" name="الرسالة" required placeholder="احكيلي عن مشروعك..." data-i18n-placeholder="form_msg_ph"></textarea>
+        </div>
+        <button class="btn btn-primary form-submit" type="submit" data-i18n="form_submit">ابعت الرسالة 🚀</button>
+        <p class="form-note" data-i18n="form_note">هيوصلك ريبلاي على الإيميل اللي كتبته خلال يوم أو اتنين.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><span data-i18n="footer_text">© 2026 عمر شادي — omar.shady</span></p>
+    <a class="back" href="#top" data-i18n="back_top">↑ لفوق</a>
+  </div>
+</footer>
+
+<script>
+  /* ---------------- i18n dictionary ---------------- */
+  const dict = {
+    ar: {
+      brand: 'omar.shady',
+      nav_about: 'نبذة', nav_work: 'المشاريع', nav_how: 'أسلوب الشغل', nav_contact: 'تواصل',
+      theme_dark: 'غامق', theme_light: 'فاتح',
+      hero_eyebrow: '// مطوّر ويب — بيحوّل الفكرة لمنتج شغّال',
+      hero_h1: 'مش بس بصمم شاشات. <span class="accent">بابني حاجات الناس بتستخدمها فعلاً.</span>',
+      hero_sub: 'اسمي عمر شادي. بشتغل على مشاريع ويب من الفكرة للنشر: منصات طلب أونلاين، تطبيقات تفاعلية، ولوحات تحكم — كل حاجة متصممة، متبنية، ومنشورة على الإنترنت فعليًا مش مجرد Mockup.',
+      hero_cta1: 'شوف المشاريع ↓', hero_cta2: 'اتكلم معايا',
+      about_eyebrow: '// نبذة', about_h2: 'إزاي بفكر لما بابني حاجة',
+      about_p1: '<strong>مهتم إني أبني منتجات حقيقية بتشتغل</strong> — مش مجرد واجهات جميلة وخلاص. من أول تجربة المستخدم لحد آخر تفصيلة في الـ Deployment.',
+      about_p2: 'بشتغل بنفسي على المشروع كامل: الواجهة، المنطق اللي بيشغّلها، ولوحات التحكم اللي بتخلّي صاحب المنتج يتحكم فيه من غير ما يحتاجني في كل صغيرة وكبيرة.',
+      about_p3: 'كل مشروع من اللي هتشوفه تحت مش تجربة أو Template — دي منتجات فعلًا شغّالة على الإنترنت ومستخدمين بيتعاملوا معاها دلوقتي.',
+      pkg_role: '"مطوّر ويب"', pkg_build: '"شغل لحد ما يظبط"', pkg_deploy: '"سلّم في الميعاد"',
+      work_eyebrow: '// المشاريع', work_h2: 'حاجات بنيتها وشغّالة دلوقتي',
+      work_desc: 'مش سكرين شوتس من Figma — دوس على الروابط وشوفهم شغّالين بنفسك.',
+      p1_shot_title: 'كشري دقة', p1_shot_l1: '$ cart.add("كشري وسط") → في السلة ✓', p1_shot_l2: '$ order.send() → واتساب مفتوح ✓',
+      p1_num: 'مشروع تجاري — طلبات أونلاين', p1_title: 'كشري دقة',
+      p1_desc: 'منصة طلب أونلاين لمطعم كشري: المستخدم يختار من المنيو، يضيف للسلة، يحدد توصيل أو استلام، ويبعت طلبه مباشرة عبر واتساب. ولوحة تحكم منفصلة لصاحب المطعم يدير بيها المنيو والعروض من غير ما يلمس كود.',
+      p1_f1: 'سلة طلبات تفاعلية بحساب الإجمالي أوتوماتيك',
+      p1_f2: 'إرسال الطلب مباشرة على واتساب بكل التفاصيل',
+      p1_f3: 'لوحة تحكم إدارية محمية بكلمة مرور لتعديل المنيو والعروض',
+      p1_f4: 'واجهة عربية بالكامل ومظبوطة على الموبايل',
+      visit_site: 'زور الموقع', visit_site2: 'زور الموقع',
+      p2_shot_l1: '$ streak.count++ → 🔥 يوم جديد', p2_shot_l2: '$ hearts.remaining → ❤️❤️❤️❤️❤️',
+      p2_num: 'تطبيق تعليمي — تفاعلي',
+      p2_desc: 'تطبيق ويب لتعليم البرمجة للأعمار من ٧ لـ ١٨ سنة، بأسلوب شبيه بتطبيقات تعلّم اللغات: دروس يومية قصيرة، نظام قلوب بيحدد عدد المحاولات، ستريك يومي، وخريطة مغامرة يتقدم فيها المتعلم عالم ورا التاني.',
+      p2_f1: 'نظام تسجيل دخول وحساب جديد كامل',
+      p2_f2: 'دروس تفاعلية: اختيار من متعدد، ترتيب، وتوصيل',
+      p2_f3: 'نظام قلوب وستريك يومي لتحفيز الاستمرارية',
+      p2_f4: 'خريطة عوالم تتفتح بالتدريج حسب التقدّم',
+      how_eyebrow: '// أسلوب الشغل', how_h2: 'إزاي بتعامل مع أي مشروع جديد',
+      how1_title: 'افهم الهدف الأول', how1_desc: 'قبل أي سطر كود، بحدد المشروع بيحل مشكلة إيه، ومين هيستخدمه، عشان القرارات كلها تبقى ليها سبب.',
+      how2_title: 'بناء شغّال مش ديمو', how2_desc: 'كل حاجة بعملها بتتنشر فعليًا وتتجرب على الموبايل والديسكتوب، مش تفضل حبيسة في بيئة تجريبية.',
+      how3_title: 'تسليم وتحسين مستمر', how3_desc: 'بعد النشر، بفضل متابع الأداء وبستقبل فيدباك عشان أطوّر المنتج مع الوقت مش أسيبه زي ما هو.',
+      contact_eyebrow: '// تواصل', contact_h2: 'عندك فكرة أو مشروع؟ يلا نبنيه',
+      contact_desc: 'ابعتلي تفاصيل مشروعك من الفورم، وأنا هرد عليك بأسرع ما يمكن. أو لو حابب تواصل مباشر، اختار أي وسيلة تحت.',
+      whatsapp_label: 'واتساب',
+      form_name: 'الاسم', form_name_ph: 'اسمك',
+      form_email: 'الإيميل',
+      form_subject: 'موضوع المشروع', form_subject_ph: 'موقع تجاري، تطبيق ويب، لوحة تحكم...',
+      form_msg: 'تفاصيل المشروع', form_msg_ph: 'احكيلي عن مشروعك...',
+      form_submit: 'ابعت الرسالة 🚀',
+      form_note: 'هيوصلك ريبلاي على الإيميل اللي كتبته خلال يوم أو اتنين.',
+      footer_text: '© 2026 عمر شادي — omar.shady', back_top: '↑ لفوق'
+    },
+    en: {
+      brand: 'omar.shady',
+      nav_about: 'About', nav_work: 'Work', nav_how: 'How I Work', nav_contact: 'Contact',
+      theme_dark: 'Dark', theme_light: 'Light',
+      hero_eyebrow: '// Web developer — turning ideas into working products',
+      hero_h1: "I don't just design screens. <span class=\"accent\">I build things people actually use.</span>",
+      hero_sub: "I'm Omar Shady. I build web projects end to end — online ordering platforms, interactive apps, admin dashboards — each one designed, built, and actually live on the internet, not just a mockup.",
+      hero_cta1: 'See the work ↓', hero_cta2: 'Get in touch',
+      about_eyebrow: '// About', about_h2: 'How I think about building things',
+      about_p1: "<strong>I care about shipping real products that work</strong> — not just nice-looking screens. From the first user interaction down to the last deployment detail.",
+      about_p2: "I build the full project myself: the interface, the logic that drives it, and the admin dashboards that let the owner run things without needing me for every small change.",
+      about_p3: "Every project below isn't a demo or a template — these are real products live on the internet with real people using them right now.",
+      pkg_role: '"web developer"', pkg_build: '"build until it feels right"', pkg_deploy: '"ship on time"',
+      work_eyebrow: '// Work', work_h2: "Things I've built that are live right now",
+      work_desc: "Not Figma screenshots — click the links and try them yourself.",
+      p1_shot_title: 'Koshari Dakka', p1_shot_l1: '$ cart.add("koshari wast") → added ✓', p1_shot_l2: '$ order.send() → WhatsApp opened ✓',
+      p1_num: 'Commercial project — online ordering', p1_title: 'Koshari Dakka',
+      p1_desc: "An online ordering platform for a koshari restaurant: customers browse the menu, add to cart, choose delivery or pickup, and send their order straight to WhatsApp. A separate admin panel lets the owner manage the menu and offers without touching code.",
+      p1_f1: 'Interactive cart with automatic total calculation',
+      p1_f2: 'Orders sent directly to WhatsApp with full details',
+      p1_f3: 'Password-protected admin panel for menu and offers',
+      p1_f4: 'Fully Arabic RTL interface, tuned for mobile',
+      visit_site: 'Visit site', visit_site2: 'Visit site',
+      p2_shot_l1: '$ streak.count++ → 🔥 new day', p2_shot_l2: '$ hearts.remaining → ❤️❤️❤️❤️❤️',
+      p2_num: 'Learning app — interactive',
+      p2_desc: "A web app that teaches coding to kids and teens aged 7–18, in a language-learning-app style: short daily lessons, a hearts system that limits attempts, daily streaks, and an adventure map that unlocks new worlds as learners progress.",
+      p2_f1: 'Full sign-up and login system',
+      p2_f2: 'Interactive lessons: multiple choice, ordering, matching',
+      p2_f3: 'Hearts and daily streak system to drive consistency',
+      p2_f4: 'World map that unlocks gradually with progress',
+      how_eyebrow: '// How I Work', how_h2: 'How I approach a new project',
+      how1_title: 'Understand the goal first', how1_desc: "Before writing a line of code, I pin down what problem the project solves and who it's for, so every decision has a reason behind it.",
+      how2_title: 'Build things, not demos', how2_desc: "Everything I make actually ships and gets tested on mobile and desktop, instead of staying stuck in a sandbox.",
+      how3_title: 'Ship, then keep improving', how3_desc: "After launch I keep an eye on performance and take feedback seriously, so the product keeps getting better instead of standing still.",
+      contact_eyebrow: '// Contact', contact_h2: "Got an idea or a project? Let's build it",
+      contact_desc: "Send me your project details through the form and I'll get back to you as soon as I can. Or reach out directly with any of the options below.",
+      whatsapp_label: 'WhatsApp',
+      form_name: 'Name', form_name_ph: 'Your name',
+      form_email: 'Email',
+      form_subject: 'Project subject', form_subject_ph: 'Business site, web app, dashboard...',
+      form_msg: 'Project details', form_msg_ph: 'Tell me about your project...',
+      form_submit: 'Send message 🚀',
+      form_note: "You'll get a reply on the email you entered within a day or two.",
+      footer_text: '© 2026 Omar Shady — omar.shady', back_top: '↑ Back to top'
+    }
+  };
+
+  let currentLang = 'ar';
+  let currentTheme = 'dark';
+
+  function applyTranslations(lang){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(dict[lang][key] !== undefined){ el.innerHTML = dict[lang][key]; }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-placeholder');
+      if(dict[lang][key] !== undefined){ el.setAttribute('placeholder', dict[lang][key]); }
+    });
+  }
+
+  function setLanguage(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.getElementById('langLabel').textContent = lang === 'ar' ? 'EN' : 'AR';
+    applyTranslations(lang);
+    document.getElementById('themeLabel').textContent = dict[lang][currentTheme === 'dark' ? 'theme_dark' : 'theme_light'];
+    runTerminal();
+  }
+
+  function setTheme(theme){
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    document.getElementById('themeIcon').textContent = theme === 'dark' ? '🌙' : '☀️';
+    document.getElementById('themeLabel').textContent = dict[currentLang][theme === 'dark' ? 'theme_dark' : 'theme_light'];
+  }
+
+  document.getElementById('langToggle').addEventListener('click', ()=>{
+    setLanguage(currentLang === 'ar' ? 'en' : 'ar');
+  });
+  document.getElementById('themeToggle').addEventListener('click', ()=>{
+    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ---------------- reveal on scroll ---------------- */
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ---------------- terminal typing effect ---------------- */
+  const termBody = document.getElementById('termBody');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let termRun = 0;
+
+  function termLines(lang){
+    if(lang === 'ar'){
+      return [
+        { prompt: 'omar@web', path: '~', cmd: 'whoami' },
+        { out: 'عمر شادي — مطوّر ويب' },
+        { prompt: 'omar@web', path: '~', cmd: 'ls projects/' },
+        { out: 'koshari-dakka.vercel.app   code-it-ashy.vercel.app' },
+        { prompt: 'omar@web', path: '~', cmd: 'status' },
+        { out: '✓ كل المشاريع منشورة وشغالة' },
+      ];
+    }
+    return [
+      { prompt: 'omar@web', path: '~', cmd: 'whoami' },
+      { out: 'Omar Shady — Web Developer' },
+      { prompt: 'omar@web', path: '~', cmd: 'ls projects/' },
+      { out: 'koshari-dakka.vercel.app   code-it-ashy.vercel.app' },
+      { prompt: 'omar@web', path: '~', cmd: 'status' },
+      { out: '✓ All projects live and running' },
+    ];
+  }
+
+  function sleep(ms){ return new Promise(r=>setTimeout(r, ms)); }
+
+  function renderStatic(lines){
+    termBody.innerHTML = lines.map(l=>{
+      if(l.cmd){ return `<div class="l"><span class="prompt">${l.prompt}</span> <span class="path">${l.path}</span> $ ${l.cmd}</div>`; }
+      return `<div class="l out">${l.out}</div>`;
+    }).join('') + '<span class="cursor"></span>';
+  }
+
+  async function typeLines(lines, runId){
+    termBody.innerHTML = '';
+    for(const l of lines){
+      if(runId !== termRun) return;
+      const div = document.createElement('div');
+      div.className = 'l';
+      termBody.appendChild(div);
+      if(l.cmd){
+        const prefix = `<span class="prompt">${l.prompt}</span> <span class="path">${l.path}</span> $ `;
+        div.innerHTML = prefix;
+        let typed = '';
+        for(const ch of l.cmd){
+          if(runId !== termRun) return;
+          typed += ch;
+          div.innerHTML = prefix + typed;
+          await sleep(28);
+        }
+        await sleep(220);
+      } else {
+        div.classList.add('out');
+        div.textContent = l.out;
+        await sleep(160);
+      }
+    }
+    if(runId !== termRun) return;
+    const cursor = document.createElement('span');
+    cursor.className = 'cursor';
+    termBody.appendChild(cursor);
+  }
+
+  function runTerminal(){
+    termRun++;
+    const lines = termLines(currentLang);
+    if(reduced){ renderStatic(lines); } else { typeLines(lines, termRun); }
+  }
+
+  /* ---------------- contact form (FormSubmit) ---------------- */
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', ()=>{
+    const btn = contactForm.querySelector('.form-submit');
+    btn.textContent = currentLang === 'ar' ? 'بيتبعت...' : 'Sending...';
+    btn.disabled = true;
+  });
+
+  /* ---------------- init ---------------- */
+  setTheme('dark');
+  setLanguage('ar');
+</script>
+
+</body>
+</html>

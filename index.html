@@ -114,12 +114,11 @@
 
   .wrap{ max-width: var(--maxw); margin:0 auto; padding: 0 24px; }
 
-  /* default visible; JS only ADDS a will-animate state, never hides by default */
-  .reveal{ opacity: 1; transform: none; }
-  .js-ready .reveal{ opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-  .js-ready .reveal.in{ opacity: 1; transform: none; }
+  /* pure CSS fade-in — no JS dependency, cannot get stuck invisible */
+  @keyframes fadeUp{ from{ opacity:0; transform: translateY(18px); } to{ opacity:1; transform:none; } }
+  .reveal{ animation: fadeUp .7s ease both; }
   @media (prefers-reduced-motion: reduce){
-    .js-ready .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
+    .reveal{ animation: none; opacity:1; transform:none; }
   }
 
   /* ---------- nav ---------- */
@@ -787,19 +786,6 @@
     if(themeBtn){ themeBtn.addEventListener('click', function(){ setTheme(currentTheme === 'dark' ? 'light' : 'dark'); }); }
   }
 
-  function initReveal(){
-    document.documentElement.classList.add('js-ready');
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){
-      for(var i=0;i<els.length;i++){ els[i].classList.add('in'); }
-      return;
-    }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    for(var j=0;j<els.length;j++){ io.observe(els[j]); }
-  }
-
   function initForm(){
     var form = document.getElementById('contactForm');
     if(!form) return;
@@ -815,11 +801,9 @@
   try{
     initToggles();
     initForm();
-    initReveal();
     setTheme('light');
     setLanguage('ar');
   }catch(err){
-    document.documentElement.classList.remove('js-ready');
   }
 })();
 </script>

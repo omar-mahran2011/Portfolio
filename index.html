@@ -127,12 +127,11 @@
   /* ---------- nav ---------- */
   header{
     position: sticky; top:0; z-index: 50;
-    background: rgba(255,255,255,0.82);
-    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.97);
     border-bottom: 1px solid var(--line);
     transition: background .3s ease, border-color .3s ease;
   }
-  html[data-theme="dark"] header{ background: rgba(10,14,26,0.82); }
+  html[data-theme="dark"] header{ background: rgba(10,14,26,0.97); }
   nav.wrap{ display:flex; align-items:center; justify-content:space-between; padding-block: 16px; gap: 20px; }
 
   .brand{ display:flex; align-items:center; gap:10px; }
@@ -207,7 +206,7 @@
   .hero-visual{
     background: var(--panel); border-radius: var(--radius-lg);
     padding: 28px; position:relative; overflow:hidden;
-    box-shadow: 0 40px 80px -34px var(--shadow);
+    box-shadow: 0 14px 28px -14px var(--shadow);
     min-height: 380px; display:flex; flex-direction:column; justify-content:space-between;
   }
   .hero-visual::before{
@@ -247,13 +246,13 @@
   .principles{ display:flex; flex-direction:column; gap: 18px; }
   .principle{ display:flex; gap:16px; background: var(--card); border:1px solid var(--line); border-radius: var(--radius); padding: 20px; }
   .principle .pn{ font-family: var(--font-en-head); font-weight:800; color: var(--blue); font-size: 15px; flex-shrink:0; width: 30px; }
-  .principle h4{ font-size: 15px; color: var(--ink); margin-bottom: 5px; font-weight:700; }
+  .principle .mini-head{ font-size: 15px; color: var(--ink); margin-bottom: 5px; font-weight:700; }
   .principle p{ font-size: 13.5px; color: var(--muted); }
 
   /* ---------- services ---------- */
   .services-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
   .service-card{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius); padding: 26px 22px; transition: border-color .2s, transform .2s, box-shadow .2s; }
-  .service-card:hover{ border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 20px 40px -26px var(--shadow); }
+  .service-card:hover{ border-color: var(--blue); transform: translateY(-4px); box-shadow: 0 10px 20px -12px var(--shadow); }
   .service-icon{ width: 42px; height:42px; border-radius: 9px; background: var(--card-2); display:flex; align-items:center; justify-content:center; font-size: 19px; margin-bottom: 16px; }
   .service-card h3{ font-size: 16px; color: var(--ink); margin-bottom: 8px; font-weight:700; }
   .service-card p{ font-size: 13.5px; color: var(--muted); }
@@ -265,7 +264,7 @@
   .case + .case{ border-top: 1px solid var(--line); }
   .case:nth-child(even) .case-visual{ order: 2; }
 
-  .case-visual{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius-lg); overflow:hidden; box-shadow: 0 30px 60px -34px var(--shadow); }
+  .case-visual{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius-lg); overflow:hidden; box-shadow: 0 12px 24px -14px var(--shadow); }
   .browser-bar{ display:flex; align-items:center; gap:8px; padding:11px 14px; background: var(--card-2); border-bottom:1px solid var(--line); }
   .browser-bar span{ width:9px; height:9px; border-radius:50%; background: var(--line); }
   .browser-url{ margin-inline-start:10px; font-family: var(--font-en-body); font-size:11.5px; color: var(--muted); direction:ltr; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
@@ -279,7 +278,7 @@
   .case-desc{ color: var(--muted); font-size: 15.5px; margin-bottom: 20px; }
 
   .case-block{ margin-bottom: 18px; }
-  .case-block h4{ font-size: 12.5px; color: var(--ink); font-weight:700; margin-bottom: 8px; text-transform:uppercase; letter-spacing:.3px; }
+  .case-block .mini-head{ font-size: 12.5px; color: var(--ink); font-weight:700; margin-bottom: 8px; text-transform:uppercase; letter-spacing:.3px; }
   .case-features{ list-style:none; }
   .case-features li{ font-size: 14.5px; color: var(--muted); padding-right: 20px; position:relative; margin-bottom: 7px; }
   .case-features li::before{ content:'—'; position:absolute; right:0; color: var(--blue); }
@@ -315,7 +314,7 @@
   }
   .clink:hover{ border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); }
 
-  .contact-form{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius-lg); padding: 34px; box-shadow: 0 30px 60px -34px var(--shadow); }
+  .contact-form{ background: var(--card); border:1px solid var(--line); border-radius: var(--radius-lg); padding: 34px; box-shadow: 0 12px 24px -14px var(--shadow); }
   .form-row{ margin-bottom: 20px; }
   .form-row label{ display:block; font-size: 13.5px; font-weight:700; color: var(--ink); margin-bottom: 8px; }
   .form-row input, .form-row textarea{
@@ -333,7 +332,7 @@
   footer{ border-top:1px solid var(--line); padding: 50px 0 30px; background: var(--bg-soft); }
   .footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; padding-bottom: 36px; }
   .footer-brand p{ color: var(--muted); font-size: 14px; margin-top: 12px; max-width: 320px; }
-  .footer-col h4{ font-size: 13px; color: var(--ink); margin-bottom: 14px; font-weight:700; }
+  .footer-col .mini-head{ font-size: 13px; color: var(--ink); margin-bottom: 14px; font-weight:700; }
   .footer-col a{ display:block; color: var(--muted); font-size: 14px; margin-bottom: 10px; transition: color .2s; }
   .footer-col a:hover{ color: var(--blue); }
   .footer-bottom{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-top: 1px solid var(--line); padding-top: 24px; }
@@ -434,15 +433,15 @@
       <div class="principles reveal">
         <div class="principle">
           <div class="pn">01</div>
-          <div><h4 data-i18n="prin1_h">وضوح قبل الكود</h4><p data-i18n="prin1_p">مش بابدأ أكتب كود غير لما أفهم المشكلة والهدف صح.</p></div>
+          <div><p class="mini-head" data-i18n="prin1_h">وضوح قبل الكود</p><p data-i18n="prin1_p">مش بابدأ أكتب كود غير لما أفهم المشكلة والهدف صح.</p></div>
         </div>
         <div class="principle">
           <div class="pn">02</div>
-          <div><h4 data-i18n="prin2_h">ملكية كاملة للمشروع</h4><p data-i18n="prin2_p">مسؤول عن كل مرحلة، مش بس جزء وأسيب الباقي لحد تاني.</p></div>
+          <div><p class="mini-head" data-i18n="prin2_h">ملكية كاملة للمشروع</p><p data-i18n="prin2_p">مسؤول عن كل مرحلة، مش بس جزء وأسيب الباقي لحد تاني.</p></div>
         </div>
         <div class="principle">
           <div class="pn">03</div>
-          <div><h4 data-i18n="prin3_h">تواصل واضح ومباشر</h4><p data-i18n="prin3_p">بتعرف إيه اللي بيحصل في مشروعك في كل خطوة، من غير غموض.</p></div>
+          <div><p class="mini-head" data-i18n="prin3_h">تواصل واضح ومباشر</p><p data-i18n="prin3_p">بتعرف إيه اللي بيحصل في مشروعك في كل خطوة، من غير غموض.</p></div>
         </div>
       </div>
     </div>
@@ -501,7 +500,7 @@
           <h3 class="case-title" data-i18n="p1_title">كشري دقة</h3>
           <p class="case-desc" data-i18n="p1_desc">المستخدم يختار من المنيو، يضيف للسلة، يحدد توصيل أو استلام، ويبعت طلبه مباشرة عبر واتساب. ولوحة تحكم منفصلة لصاحب المطعم يدير بيها المنيو والعروض من غير ما يلمس كود.</p>
           <div class="case-block">
-            <h4 data-i18n="key_features">أهم المميزات</h4>
+            <p class="mini-head" data-i18n="key_features">أهم المميزات</p>
             <ul class="case-features">
               <li data-i18n="p1_f1">سلة طلبات تفاعلية بحساب الإجمالي أوتوماتيك</li>
               <li data-i18n="p1_f2">إرسال الطلب مباشرة على واتساب بكل التفاصيل</li>
@@ -528,7 +527,7 @@
           <h3 class="case-title">Code It!</h3>
           <p class="case-desc" data-i18n="p2_desc">تطبيق ويب لتعليم البرمجة للأعمار من ٧ لـ ١٨ سنة، بأسلوب شبيه بتطبيقات تعلّم اللغات: دروس يومية قصيرة، نظام قلوب، ستريك يومي، وخريطة مغامرة يتقدم فيها المتعلم عالم ورا التاني.</p>
           <div class="case-block">
-            <h4 data-i18n="key_features2">أهم المميزات</h4>
+            <p class="mini-head" data-i18n="key_features2">أهم المميزات</p>
             <ul class="case-features">
               <li data-i18n="p2_f1">نظام تسجيل دخول وحساب جديد كامل</li>
               <li data-i18n="p2_f2">دروس تفاعلية: اختيار من متعدد، ترتيب، وتوصيل</li>
@@ -618,14 +617,14 @@
         <p data-i18n="footer_blurb">مطوّر ويب مستقل بيبني منتجات ويب حقيقية — من الفكرة للنشر الفعلي.</p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_nav">روابط</h4>
+        <p class="mini-head" data-i18n="footer_nav">روابط</p>
         <a href="#about" data-i18n="nav_about">نبذة</a>
         <a href="#services" data-i18n="nav_services">الخدمات</a>
         <a href="#work" data-i18n="nav_work">أعمالي</a>
         <a href="#process" data-i18n="nav_process">أسلوب العمل</a>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_contact">تواصل</h4>
+        <p class="mini-head" data-i18n="footer_contact">تواصل</p>
         <a href="tel:+201551783454">+20 155 178 3454</a>
         <a href="mailto:synzriv@gmail.com">synzriv@gmail.com</a>
         <a href="https://wa.me/201551783454" target="_blank" rel="noopener" data-i18n="whatsapp_label">واتساب</a>

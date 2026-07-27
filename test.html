@@ -1,8 +1,517 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Test</title></head>
-<body style="background:red; color:white; font-size:40px;">
-TEST WORKS
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff">
+<title>عمر شادي | Omar Shady — مطوّر ويب / Web Developer</title>
+<meta name="description" content="عمر شادي (Omar Shady) — مطوّر ويب مستقل بيبني منتجات ويب حقيقية: منصات طلب أونلاين، تطبيقات تفاعلية، ولوحات تحكم. شوف أعماله وابدأ مشروعك.">
+<meta name="author" content="Omar Shady">
+<link rel="canonical" href="https://omarshady.vercel.app/">
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Omar Shady">
+<meta property="og:title" content="عمر شادي | Omar Shady — مطوّر ويب / Web Developer">
+<meta property="og:description" content="مطوّر ويب مستقل بيبني منتجات ويب حقيقية: منصات طلب أونلاين، تطبيقات تفاعلية، ولوحات تحكم.">
+<meta property="og:url" content="https://omarshady.vercel.app/">
+<meta property="og:image" content="https://omarshady.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_AR">
+<meta property="og:locale:alternate" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="عمر شادي | Omar Shady — Web Developer">
+<meta name="twitter:description" content="مطوّر ويب مستقل بيبني منتجات ويب حقيقية — منصات طلب أونلاين، تطبيقات تفاعلية، ولوحات تحكم.">
+<meta name="twitter:image" content="https://omarshady.vercel.app/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Omar Shady",
+  "alternateName": "عمر شادي",
+  "url": "https://omarshady.vercel.app/",
+  "image": "https://omarshady.vercel.app/og-image.png",
+  "jobTitle": "Web Developer",
+  "email": "mailto:synzriv@gmail.com",
+  "telephone": "+201551783454",
+  "knowsAbout": ["Web Development", "Frontend Development", "JavaScript", "Admin Dashboards", "E-commerce Platforms"],
+  "sameAs": [
+    "https://koshari-dakka.vercel.app/",
+    "https://code-it-ashy.vercel.app/"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<style>body{font-family:sans-serif;padding:20px;}</style>
+</head>
+<body class="lang-ar">
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <div class="brand-mark">OS</div>
+      <span class="logo-word" data-i18n="brand">عمر شادي</span>
+    </div>
+    <div class="navlinks">
+      <a href="#about" data-i18n="nav_about">نبذة</a>
+      <a href="#services" data-i18n="nav_services">الخدمات</a>
+      <a href="#work" data-i18n="nav_work">أعمالي</a>
+      <a href="#process" data-i18n="nav_process">أسلوب العمل</a>
+    </div>
+    <div class="nav-right">
+      <button class="tool-btn" id="themeToggle" type="button" aria-label="Toggle theme">
+        <span id="themeIcon">☀️</span> <span id="themeLabel">فاتح</span>
+      </button>
+      <button class="tool-btn" id="langToggle" type="button" aria-label="Switch language">
+        <span>🌐</span> <span id="langLabel">EN</span>
+      </button>
+      <a class="nav-cta" href="#contact" data-i18n="nav_cta">ابدأ مشروعك</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow-badge reveal">
+          <span class="live-dot"></span>
+          <span data-i18n="hero_badge">مشروعين شغالين حاليًا في الإنتاج</span>
+        </div>
+        <h1 class="reveal" data-i18n="hero_h1">مطوّر ويب مستقل. <span class="accent">بيسلّم منتجات، مش عروض تقديمية.</span></h1>
+        <p class="hero-sub reveal" data-i18n="hero_sub">اسمي عمر شادي. بتولى مشروعك من أول الفكرة لحد النشر الفعلي: تصميم، بناء، ونشر منصات ويب حقيقية بتستخدمها الشركات وعملاؤها يوميًا.</p>
+        <div class="cta-row reveal">
+          <a class="btn btn-primary" href="#work" data-i18n="hero_cta1">شوف الأعمال</a>
+          <a class="btn btn-ghost" href="#contact" data-i18n="hero_cta2">احجز استشارة</a>
+        </div>
+        <div class="stat-row reveal">
+          <div class="stat"><div class="stat-num">2</div><div class="stat-label" data-i18n="stat1">منتج مباشر على الإنترنت</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label" data-i18n="stat2">تسليم فعلي للإنتاج</div></div>
+          <div class="stat"><div class="stat-num" data-i18n="stat3_num">شامل</div><div class="stat-label" data-i18n="stat3">من التصميم للنشر</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="hv-top">
+          <span class="hv-badge">PRODUCT.BUILD</span>
+          <div class="hv-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="hv-bars">
+          <div class="hv-bar w1"></div>
+          <div class="hv-bar w2"></div>
+          <div class="hv-bar w3"></div>
+          <div class="hv-bar w4"></div>
+        </div>
+        <div class="hv-cards">
+          <div class="hv-card"><div class="n">02</div><div class="l" data-i18n="hv_live">منتجات مباشرة</div></div>
+          <div class="hv-card"><div class="n">01</div><div class="l" data-i18n="hv_dev">مطوّر واحد، تنفيذ كامل</div></div>
+        </div>
+        <div class="hv-foot">
+          <span class="pulse"></span>
+          <span data-i18n="hv_status">الحالة: منشور ويشتغل</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow" data-i18n="about_eyebrow">نبذة</span>
+        <h2 style="margin-bottom:22px;" data-i18n="about_h2">إزاي بفكر لما بابني منتج</h2>
+        <p data-i18n="about_p1"><strong>مهتم إني أبني منتجات حقيقية بتشتغل</strong> — مش مجرد واجهات جميلة وخلاص. من أول تجربة المستخدم لحد آخر تفصيلة في النشر.</p>
+        <p data-i18n="about_p2">بتولى المشروع كامل بنفسي: الواجهة، المنطق اللي بيشغّلها، ولوحات التحكم اللي بتخلّي صاحب المنتج يدير شغله من غير ما يحتاجني في كل صغيرة وكبيرة.</p>
+        <p data-i18n="about_p3">كل مشروع هتشوفه تحت مش تجربة أو Template — دي منتجات فعلًا شغّالة على الإنترنت ومستخدمين بيتعاملوا معاها دلوقتي.</p>
+      </div>
+      <div class="principles reveal">
+        <div class="principle">
+          <div class="pn">01</div>
+          <div><p class="mini-head" data-i18n="prin1_h">وضوح قبل الكود</p><p data-i18n="prin1_p">مش بابدأ أكتب كود غير لما أفهم المشكلة والهدف صح.</p></div>
+        </div>
+        <div class="principle">
+          <div class="pn">02</div>
+          <div><p class="mini-head" data-i18n="prin2_h">ملكية كاملة للمشروع</p><p data-i18n="prin2_p">مسؤول عن كل مرحلة، مش بس جزء وأسيب الباقي لحد تاني.</p></div>
+        </div>
+        <div class="principle">
+          <div class="pn">03</div>
+          <div><p class="mini-head" data-i18n="prin3_h">تواصل واضح ومباشر</p><p data-i18n="prin3_p">بتعرف إيه اللي بيحصل في مشروعك في كل خطوة، من غير غموض.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="services_eyebrow">الخدمات</span>
+        <h2 data-i18n="services_h2">أنواع المشاريع اللي بشتغل عليها</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">🌐</div>
+          <h3 data-i18n="svc1_h">تطبيقات ويب مخصصة</h3>
+          <p data-i18n="svc1_p">واجهات سريعة ومتجاوبة، مبنية لتناسب احتياج مشروعك بالظبط.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🛒</div>
+          <h3 data-i18n="svc2_h">منصات طلب وتجارة أونلاين</h3>
+          <p data-i18n="svc2_p">سلة طلبات، دفع، وربط مباشر بالعميل عبر واتساب أو غيره.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🗂️</div>
+          <h3 data-i18n="svc3_h">لوحات تحكم إدارية</h3>
+          <p data-i18n="svc3_p">أدوات تدير بيها المحتوى والطلبات من غير ما تحتاج مبرمج معاك.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🎮</div>
+          <h3 data-i18n="svc4_h">تجارب تفاعلية وتعليمية</h3>
+          <p data-i18n="svc4_p">تطبيقات مبنية على التفاعل والتحفيز، زي أنظمة النقاط والمستويات.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="work_eyebrow">أعمالي</span>
+        <h2 data-i18n="work_h2">مشاريع منشورة وشغّالة دلوقتي</h2>
+        <p class="section-desc" data-i18n="work_desc">مش سكرين شوتس من برنامج تصميم — دوس على الروابط وجرّبهم بنفسك.</p>
+      </div>
+
+      <div class="case reveal">
+        <div class="case-visual">
+          <div class="browser-bar"><span></span><span></span><span></span><div class="browser-url">koshari-dakka.vercel.app</div></div>
+          <div class="case-shot">
+            <div class="cs-emoji">🍜</div>
+            <div class="cs-title" data-i18n="p1_shot_title">كشري دقة</div>
+            <div class="cs-tagline" data-i18n="p1_tagline">منصة طلب أونلاين لمطعم كشري</div>
+          </div>
+        </div>
+        <div>
+          <span class="case-label" data-i18n="p1_num">مشروع تجاري — طلبات أونلاين</span>
+          <h3 class="case-title" data-i18n="p1_title">كشري دقة</h3>
+          <p class="case-desc" data-i18n="p1_desc">المستخدم يختار من المنيو، يضيف للسلة، يحدد توصيل أو استلام، ويبعت طلبه مباشرة عبر واتساب. ولوحة تحكم منفصلة لصاحب المطعم يدير بيها المنيو والعروض من غير ما يلمس كود.</p>
+          <div class="case-block">
+            <p class="mini-head" data-i18n="key_features">أهم المميزات</p>
+            <ul class="case-features">
+              <li data-i18n="p1_f1">سلة طلبات تفاعلية بحساب الإجمالي أوتوماتيك</li>
+              <li data-i18n="p1_f2">إرسال الطلب مباشرة على واتساب بكل التفاصيل</li>
+              <li data-i18n="p1_f3">لوحة تحكم إدارية محمية بكلمة مرور لتعديل المنيو والعروض</li>
+              <li data-i18n="p1_f4">واجهة عربية بالكامل ومظبوطة على الموبايل</li>
+            </ul>
+          </div>
+          <div class="tags"><span class="tag">Frontend</span><span class="tag">RTL UI</span><span class="tag">Admin Panel</span><span class="tag">Vercel</span></div>
+          <a class="case-link" href="https://koshari-dakka.vercel.app/" target="_blank" rel="noopener"><span data-i18n="visit_site">زور الموقع</span> ↗</a>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="case-visual">
+          <div class="browser-bar"><span></span><span></span><span></span><div class="browser-url">code-it-ashy.vercel.app</div></div>
+          <div class="case-shot">
+            <div class="cs-emoji">🧑‍💻</div>
+            <div class="cs-title">Code It!</div>
+            <div class="cs-tagline" data-i18n="p2_tagline">تطبيق تفاعلي لتعليم البرمجة</div>
+          </div>
+        </div>
+        <div>
+          <span class="case-label" data-i18n="p2_num">تطبيق تعليمي — تفاعلي</span>
+          <h3 class="case-title">Code It!</h3>
+          <p class="case-desc" data-i18n="p2_desc">تطبيق ويب لتعليم البرمجة للأعمار من ٧ لـ ١٨ سنة، بأسلوب شبيه بتطبيقات تعلّم اللغات: دروس يومية قصيرة، نظام قلوب، ستريك يومي، وخريطة مغامرة يتقدم فيها المتعلم عالم ورا التاني.</p>
+          <div class="case-block">
+            <p class="mini-head" data-i18n="key_features2">أهم المميزات</p>
+            <ul class="case-features">
+              <li data-i18n="p2_f1">نظام تسجيل دخول وحساب جديد كامل</li>
+              <li data-i18n="p2_f2">دروس تفاعلية: اختيار من متعدد، ترتيب، وتوصيل</li>
+              <li data-i18n="p2_f3">نظام قلوب وستريك يومي لتحفيز الاستمرارية</li>
+              <li data-i18n="p2_f4">خريطة عوالم تتفتح بالتدريج حسب التقدّم</li>
+            </ul>
+          </div>
+          <div class="tags"><span class="tag">Frontend</span><span class="tag">Auth</span><span class="tag">Gamification</span><span class="tag">Vercel</span></div>
+          <a class="case-link" href="https://code-it-ashy.vercel.app/" target="_blank" rel="noopener"><span data-i18n="visit_site2">زور الموقع</span> ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="process_eyebrow">أسلوب العمل</span>
+        <h2 data-i18n="process_h2">إزاي بتعامل مع أي مشروع جديد</h2>
+      </div>
+      <div class="process-list reveal">
+        <div class="p-step">
+          <div class="step-num">01</div>
+          <div><h3 data-i18n="step1_h">فهم الهدف</h3><p data-i18n="step1_p">قبل أي سطر كود، بحدد المشروع بيحل مشكلة إيه، ومين هيستخدمه، عشان كل قرار يبقى له سبب واضح.</p></div>
+        </div>
+        <div class="p-step">
+          <div class="step-num">02</div>
+          <div><h3 data-i18n="step2_h">بناء ونشر فعلي</h3><p data-i18n="step2_p">كل حاجة بعملها بتتنشر فعليًا وتتجرب على الموبايل والديسكتوب، مش تفضل حبيسة في بيئة تجريبية.</p></div>
+        </div>
+        <div class="p-step">
+          <div class="step-num">03</div>
+          <div><h3 data-i18n="step3_h">متابعة وتحسين</h3><p data-i18n="step3_p">بعد النشر، بفضل متابع الأداء وبستقبل فيدباك عشان أطوّر المنتج مع الوقت مش أسيبه زي ما هو.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-shell">
+      <div class="contact-panel reveal">
+        <span class="eyebrow" style="color:rgba(255,255,255,0.7)" data-i18n="contact_eyebrow">تواصل</span>
+        <h2 data-i18n="contact_h2">يلا نبدأ مشروعك</h2>
+        <p class="section-desc" data-i18n="contact_desc">ابعتلي تفاصيل مشروعك من الفورم، وأنا هرد عليك بأسرع ما يمكن.</p>
+        <div class="avail"><span class="pulse"></span><span data-i18n="avail_text">متاح حاليًا لمشاريع جديدة</span></div>
+        <div class="direct-list">
+          <a class="clink" href="tel:+201551783454">📞 +20 155 178 3454</a>
+          <a class="clink" href="mailto:synzriv@gmail.com">✉️ synzriv@gmail.com</a>
+          <a class="clink" href="https://wa.me/201551783454" target="_blank" rel="noopener">💬 <span data-i18n="whatsapp_label">واتساب</span></a>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/synzriv@gmail.com" method="POST">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="رسالة جديدة من البورتوفوليو">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-two">
+          <div class="form-row">
+            <label for="f_name" data-i18n="form_name">الاسم</label>
+            <input id="f_name" name="الاسم" type="text" required placeholder="اسمك" data-i18n-placeholder="form_name_ph">
+          </div>
+          <div class="form-row">
+            <label for="f_email" data-i18n="form_email">الإيميل</label>
+            <input id="f_email" name="الإيميل" type="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="f_subject" data-i18n="form_subject">موضوع المشروع</label>
+          <input id="f_subject" name="الموضوع" type="text" placeholder="موقع تجاري، تطبيق ويب، لوحة تحكم..." data-i18n-placeholder="form_subject_ph">
+        </div>
+        <div class="form-row">
+          <label for="f_msg" data-i18n="form_msg">تفاصيل المشروع</label>
+          <textarea id="f_msg" name="الرسالة" required placeholder="احكيلي عن مشروعك..." data-i18n-placeholder="form_msg_ph"></textarea>
+        </div>
+        <button class="btn btn-primary form-submit" type="submit" data-i18n="form_submit">ابعت الرسالة</button>
+        <p class="form-note" data-i18n="form_note">هيوصلك ريبلاي على الإيميل اللي كتبته خلال يوم أو اتنين.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><div class="brand-mark">OS</div><span class="logo-word" data-i18n="brand">عمر شادي</span></div>
+        <p data-i18n="footer_blurb">مطوّر ويب مستقل بيبني منتجات ويب حقيقية — من الفكرة للنشر الفعلي.</p>
+      </div>
+      <div class="footer-col">
+        <p class="mini-head" data-i18n="footer_nav">روابط</p>
+        <a href="#about" data-i18n="nav_about">نبذة</a>
+        <a href="#services" data-i18n="nav_services">الخدمات</a>
+        <a href="#work" data-i18n="nav_work">أعمالي</a>
+        <a href="#process" data-i18n="nav_process">أسلوب العمل</a>
+      </div>
+      <div class="footer-col">
+        <p class="mini-head" data-i18n="footer_contact">تواصل</p>
+        <a href="tel:+201551783454">+20 155 178 3454</a>
+        <a href="mailto:synzriv@gmail.com">synzriv@gmail.com</a>
+        <a href="https://wa.me/201551783454" target="_blank" rel="noopener" data-i18n="whatsapp_label">واتساب</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer_text">© 2026 عمر شادي. كل الحقوق محفوظة.</p>
+      <a href="#top" data-i18n="back_top">↑ لفوق</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var dict = {
+    ar: {
+      brand: 'عمر شادي',
+      nav_about: 'نبذة', nav_services: 'الخدمات', nav_work: 'أعمالي', nav_process: 'أسلوب العمل', nav_cta: 'ابدأ مشروعك',
+      hero_badge: 'مشروعين شغالين حاليًا في الإنتاج',
+      hero_h1: 'مطوّر ويب مستقل. <span class="accent">بيسلّم منتجات، مش عروض تقديمية.</span>',
+      hero_sub: 'اسمي عمر شادي. بتولى مشروعك من أول الفكرة لحد النشر الفعلي: تصميم، بناء، ونشر منصات ويب حقيقية بتستخدمها الشركات وعملاؤها يوميًا.',
+      hero_cta1: 'شوف الأعمال', hero_cta2: 'احجز استشارة',
+      stat1: 'منتج مباشر على الإنترنت', stat2: 'تسليم فعلي للإنتاج', stat3_num: 'شامل', stat3: 'من التصميم للنشر',
+      hv_live: 'منتجات مباشرة', hv_dev: 'مطوّر واحد، تنفيذ كامل', hv_status: 'الحالة: منشور ويشتغل',
+      about_eyebrow: 'نبذة', about_h2: 'إزاي بفكر لما بابني منتج',
+      about_p1: '<strong>مهتم إني أبني منتجات حقيقية بتشتغل</strong> — مش مجرد واجهات جميلة وخلاص. من أول تجربة المستخدم لحد آخر تفصيلة في النشر.',
+      about_p2: 'بتولى المشروع كامل بنفسي: الواجهة، المنطق اللي بيشغّلها، ولوحات التحكم اللي بتخلّي صاحب المنتج يدير شغله من غير ما يحتاجني في كل صغيرة وكبيرة.',
+      about_p3: 'كل مشروع هتشوفه تحت مش تجربة أو Template — دي منتجات فعلًا شغّالة على الإنترنت ومستخدمين بيتعاملوا معاها دلوقتي.',
+      prin1_h: 'وضوح قبل الكود', prin1_p: 'مش بابدأ أكتب كود غير لما أفهم المشكلة والهدف صح.',
+      prin2_h: 'ملكية كاملة للمشروع', prin2_p: 'مسؤول عن كل مرحلة، مش بس جزء وأسيب الباقي لحد تاني.',
+      prin3_h: 'تواصل واضح ومباشر', prin3_p: 'بتعرف إيه اللي بيحصل في مشروعك في كل خطوة، من غير غموض.',
+      services_eyebrow: 'الخدمات', services_h2: 'أنواع المشاريع اللي بشتغل عليها',
+      svc1_h: 'تطبيقات ويب مخصصة', svc1_p: 'واجهات سريعة ومتجاوبة، مبنية لتناسب احتياج مشروعك بالظبط.',
+      svc2_h: 'منصات طلب وتجارة أونلاين', svc2_p: 'سلة طلبات، دفع، وربط مباشر بالعميل عبر واتساب أو غيره.',
+      svc3_h: 'لوحات تحكم إدارية', svc3_p: 'أدوات تدير بيها المحتوى والطلبات من غير ما تحتاج مبرمج معاك.',
+      svc4_h: 'تجارب تفاعلية وتعليمية', svc4_p: 'تطبيقات مبنية على التفاعل والتحفيز، زي أنظمة النقاط والمستويات.',
+      work_eyebrow: 'أعمالي', work_h2: 'مشاريع منشورة وشغّالة دلوقتي', work_desc: 'مش سكرين شوتس من برنامج تصميم — دوس على الروابط وجرّبهم بنفسك.',
+      p1_shot_title: 'كشري دقة', p1_tagline: 'منصة طلب أونلاين لمطعم كشري',
+      p1_num: 'مشروع تجاري — طلبات أونلاين', p1_title: 'كشري دقة',
+      p1_desc: 'المستخدم يختار من المنيو، يضيف للسلة، يحدد توصيل أو استلام، ويبعت طلبه مباشرة عبر واتساب. ولوحة تحكم منفصلة لصاحب المطعم يدير بيها المنيو والعروض من غير ما يلمس كود.',
+      key_features: 'أهم المميزات', key_features2: 'أهم المميزات',
+      p1_f1: 'سلة طلبات تفاعلية بحساب الإجمالي أوتوماتيك',
+      p1_f2: 'إرسال الطلب مباشرة على واتساب بكل التفاصيل',
+      p1_f3: 'لوحة تحكم إدارية محمية بكلمة مرور لتعديل المنيو والعروض',
+      p1_f4: 'واجهة عربية بالكامل ومظبوطة على الموبايل',
+      visit_site: 'زور الموقع', visit_site2: 'زور الموقع',
+      p2_tagline: 'تطبيق تفاعلي لتعليم البرمجة',
+      p2_num: 'تطبيق تعليمي — تفاعلي',
+      p2_desc: 'تطبيق ويب لتعليم البرمجة للأعمار من ٧ لـ ١٨ سنة، بأسلوب شبيه بتطبيقات تعلّم اللغات: دروس يومية قصيرة، نظام قلوب، ستريك يومي، وخريطة مغامرة يتقدم فيها المتعلم عالم ورا التاني.',
+      p2_f1: 'نظام تسجيل دخول وحساب جديد كامل',
+      p2_f2: 'دروس تفاعلية: اختيار من متعدد، ترتيب، وتوصيل',
+      p2_f3: 'نظام قلوب وستريك يومي لتحفيز الاستمرارية',
+      p2_f4: 'خريطة عوالم تتفتح بالتدريج حسب التقدّم',
+      process_eyebrow: 'أسلوب العمل', process_h2: 'إزاي بتعامل مع أي مشروع جديد',
+      step1_h: 'فهم الهدف', step1_p: 'قبل أي سطر كود، بحدد المشروع بيحل مشكلة إيه، ومين هيستخدمه، عشان كل قرار يبقى له سبب واضح.',
+      step2_h: 'بناء ونشر فعلي', step2_p: 'كل حاجة بعملها بتتنشر فعليًا وتتجرب على الموبايل والديسكتوب، مش تفضل حبيسة في بيئة تجريبية.',
+      step3_h: 'متابعة وتحسين', step3_p: 'بعد النشر، بفضل متابع الأداء وبستقبل فيدباك عشان أطوّر المنتج مع الوقت مش أسيبه زي ما هو.',
+      contact_eyebrow: 'تواصل', contact_h2: 'يلا نبدأ مشروعك', contact_desc: 'ابعتلي تفاصيل مشروعك من الفورم، وأنا هرد عليك بأسرع ما يمكن.',
+      avail_text: 'متاح حاليًا لمشاريع جديدة', whatsapp_label: 'واتساب',
+      form_name: 'الاسم', form_name_ph: 'اسمك', form_email: 'الإيميل',
+      form_subject: 'موضوع المشروع', form_subject_ph: 'موقع تجاري، تطبيق ويب، لوحة تحكم...',
+      form_msg: 'تفاصيل المشروع', form_msg_ph: 'احكيلي عن مشروعك...',
+      form_submit: 'ابعت الرسالة', form_note: 'هيوصلك ريبلاي على الإيميل اللي كتبته خلال يوم أو اتنين.',
+      footer_blurb: 'مطوّر ويب مستقل بيبني منتجات ويب حقيقية — من الفكرة للنشر الفعلي.',
+      footer_nav: 'روابط', footer_contact: 'تواصل',
+      footer_text: '© 2026 عمر شادي. كل الحقوق محفوظة.', back_top: '↑ لفوق'
+    },
+    en: {
+      brand: 'Omar Shady',
+      nav_about: 'About', nav_services: 'Services', nav_work: 'Work', nav_process: 'Process', nav_cta: 'Start a project',
+      hero_badge: '2 products currently live in production',
+      hero_h1: 'Independent web developer. <span class="accent">Delivering products, not pitch decks.</span>',
+      hero_sub: "I'm Omar Shady. I take your project from idea to live deployment — designing, building, and shipping real web platforms that businesses and their customers use every day.",
+      hero_cta1: 'View the work', hero_cta2: 'Book a consultation',
+      stat1: 'Live products online', stat2: 'Delivered to production', stat3_num: 'End-to-end', stat3: 'Design to deployment',
+      hv_live: 'Live products', hv_dev: 'One developer, full delivery', hv_status: 'Status: live and running',
+      about_eyebrow: 'About', about_h2: 'How I think about building a product',
+      about_p1: "<strong>I care about shipping real products that work</strong> — not just nice-looking screens. From the first user interaction down to the last deployment detail.",
+      about_p2: "I take on the full project myself: the interface, the logic that drives it, and the admin dashboards that let the owner run their business without needing me for every small change.",
+      about_p3: "Every project below isn't a demo or a template — these are real products live on the internet with real users interacting with them right now.",
+      prin1_h: 'Clarity before code', prin1_p: "I don't start writing code until I fully understand the problem and the goal.",
+      prin2_h: 'Full project ownership', prin2_p: "I'm responsible for every stage, not just one piece with the rest left to someone else.",
+      prin3_h: 'Clear, direct communication', prin3_p: "You know exactly what's happening with your project at every step, with no guesswork.",
+      services_eyebrow: 'Services', services_h2: 'The kind of projects I work on',
+      svc1_h: 'Custom web applications', svc1_p: 'Fast, responsive interfaces built to fit your project\'s exact needs.',
+      svc2_h: 'Ordering & e-commerce platforms', svc2_p: 'Cart flows, checkout, and direct customer connection via WhatsApp or other channels.',
+      svc3_h: 'Admin dashboards', svc3_p: 'Tools that let you manage content and orders without needing a developer on call.',
+      svc4_h: 'Interactive & learning experiences', svc4_p: 'Apps built around engagement and motivation, like points and level systems.',
+      work_eyebrow: 'Work', work_h2: 'Projects live and running right now', work_desc: 'Not design-software screenshots — click the links and try them yourself.',
+      p1_shot_title: 'Koshari Dakka', p1_tagline: 'Online ordering platform for a koshari restaurant',
+      p1_num: 'Commercial project — online ordering', p1_title: 'Koshari Dakka',
+      p1_desc: "Customers browse the menu, add items to cart, choose delivery or pickup, and send their order straight to WhatsApp. A separate admin panel lets the restaurant owner manage the menu and offers without touching code.",
+      key_features: 'Key features', key_features2: 'Key features',
+      p1_f1: 'Interactive cart with automatic total calculation',
+      p1_f2: 'Orders sent directly to WhatsApp with full details',
+      p1_f3: 'Password-protected admin panel for menu and offers',
+      p1_f4: 'Fully Arabic RTL interface, tuned for mobile',
+      visit_site: 'Visit site', visit_site2: 'Visit site',
+      p2_tagline: 'Interactive app for learning to code',
+      p2_num: 'Learning app — interactive',
+      p2_desc: "A web app that teaches coding to kids and teens aged 7–18, in a language-learning-app style: short daily lessons, a hearts system, daily streaks, and an adventure map that unlocks new worlds as learners progress.",
+      p2_f1: 'Full sign-up and login system',
+      p2_f2: 'Interactive lessons: multiple choice, ordering, matching',
+      p2_f3: 'Hearts and daily streak system to drive consistency',
+      p2_f4: 'World map that unlocks gradually with progress',
+      process_eyebrow: 'Process', process_h2: 'How I approach a new project',
+      step1_h: 'Understand the goal', step1_p: "Before writing a line of code, I pin down what problem the project solves and who it's for, so every decision has a clear reason.",
+      step2_h: 'Build and ship for real', step2_p: 'Everything I build actually ships and gets tested on mobile and desktop, instead of staying stuck in a sandbox.',
+      step3_h: 'Follow up and improve', step3_p: 'After launch I keep an eye on performance and take feedback seriously, so the product keeps improving instead of standing still.',
+      contact_eyebrow: 'Contact', contact_h2: "Let's start your project", contact_desc: "Send me your project details through the form and I'll get back to you as soon as I can.",
+      avail_text: 'Currently available for new projects', whatsapp_label: 'WhatsApp',
+      form_name: 'Name', form_name_ph: 'Your name', form_email: 'Email',
+      form_subject: 'Project subject', form_subject_ph: 'Business site, web app, dashboard...',
+      form_msg: 'Project details', form_msg_ph: 'Tell me about your project...',
+      form_submit: 'Send message', form_note: "You'll get a reply on the email you entered within a day or two.",
+      footer_blurb: 'Independent web developer building real web products — from idea to live deployment.',
+      footer_nav: 'Links', footer_contact: 'Contact',
+      footer_text: '© 2026 Omar Shady. All rights reserved.', back_top: '↑ Back to top'
+    }
+  };
+
+  var currentLang = 'ar';
+  var currentTheme = 'light';
+
+  function applyTranslations(lang){
+    var nodes = document.querySelectorAll('[data-i18n]');
+    for(var i=0;i<nodes.length;i++){
+      var key = nodes[i].getAttribute('data-i18n');
+      if(dict[lang][key] !== undefined){ nodes[i].innerHTML = dict[lang][key]; }
+    }
+    var ph = document.querySelectorAll('[data-i18n-placeholder]');
+    for(var j=0;j<ph.length;j++){
+      var pkey = ph[j].getAttribute('data-i18n-placeholder');
+      if(dict[lang][pkey] !== undefined){ ph[j].setAttribute('placeholder', dict[lang][pkey]); }
+    }
+  }
+
+  function setLanguage(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.body.classList.toggle('lang-en', lang === 'en');
+    var ll = document.getElementById('langLabel');
+    if(ll){ ll.textContent = (lang === 'ar') ? 'EN' : 'AR'; }
+    applyTranslations(lang);
+  }
+
+  function setTheme(theme){
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    var icon = document.getElementById('themeIcon');
+    var label = document.getElementById('themeLabel');
+    if(icon){ icon.textContent = (theme === 'dark') ? '🌙' : '☀️'; }
+    if(label){ label.textContent = (currentLang === 'ar') ? (theme === 'dark' ? 'غامق' : 'فاتح') : (theme === 'dark' ? 'Dark' : 'Light'); }
+  }
+
+  function initToggles(){
+    var langBtn = document.getElementById('langToggle');
+    var themeBtn = document.getElementById('themeToggle');
+    if(langBtn){ langBtn.addEventListener('click', function(){ setLanguage(currentLang === 'ar' ? 'en' : 'ar'); setTheme(currentTheme); }); }
+    if(themeBtn){ themeBtn.addEventListener('click', function(){ setTheme(currentTheme === 'dark' ? 'light' : 'dark'); }); }
+  }
+
+  function initForm(){
+    var form = document.getElementById('contactForm');
+    if(!form) return;
+    form.addEventListener('submit', function(){
+      var btn = form.querySelector('.form-submit');
+      if(btn){
+        btn.textContent = (currentLang === 'ar') ? 'بيتبعت...' : 'Sending...';
+        btn.disabled = true;
+      }
+    });
+  }
+
+  try{
+    initToggles();
+    initForm();
+    setTheme('light');
+    setLanguage('ar');
+  }catch(err){
+  }
+})();
+</script>
+
 </body>
 </html>
-
